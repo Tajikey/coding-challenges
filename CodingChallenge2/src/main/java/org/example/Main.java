@@ -19,7 +19,7 @@ public class Main {
         }
     }
 
-    public static String[] getFileList(String[] args) {
+    private static String[] getFileList(String[] args) {
         String[] fileList;
         if (args.length == 0) {
             System.out.println("Bitte geben Sie die Dateinamen als Argument ein.");
@@ -32,12 +32,10 @@ public class Main {
         }
     }
 
-    public static void missingElementsChallenge(String fileName) {
+    private static void missingElementsChallenge(String fileName) {
         try {
             String jsonInput = MyFileReader.readFile(fileName);
-            Gson gson = new GsonBuilder()
-                    .setPrettyPrinting()
-                    .create();
+            Gson gson = new Gson();
             String[][] input = gson.fromJson(jsonInput, String[][].class);
 
             //JsonArray jsonArray = JsonParser.parseString(jsonInput).getAsJsonArray();
@@ -54,14 +52,14 @@ public class Main {
             String[] output = findMissingElements(input);
 
             System.out.println(Arrays.deepToString(input));
-            System.out.println(gson.toJson(output));
+            System.out.println(Arrays.toString(output));
 
         } catch (Exception e){
             System.err.println("Fehler beim Lesen oder Verarbeiten der Datei: " + e.getMessage());
         }
     }
 
-    public static String[] findMissingElements(String[][] inputArray) {
+    private static String[] findMissingElements(String[][] inputArray) {
         Map<String, Integer> elementCount = new HashMap<>();
         int numArrays = inputArray.length;
 

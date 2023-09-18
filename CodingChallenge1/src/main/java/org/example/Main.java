@@ -18,7 +18,7 @@ public class Main {
         }
     }
 
-    public static String[] getFileList(String[] args) {
+    private static String[] getFileList(String[] args) {
         String[] fileList;
         if (args.length == 0) {
             System.out.println("Bitte geben Sie die Dateinamen als Argument ein.");
@@ -31,8 +31,9 @@ public class Main {
         }
     }
 
-    public static void arraySplitChallenge(String fileName) {
+    private static void arraySplitChallenge(String fileName) {
         try {
+            // Ist simpler als der Code von unten
             String jsonInput = MyFileReader.readFile(fileName);
             Gson gson = new Gson();
             String[] input = gson.fromJson(jsonInput, String[].class);
@@ -55,7 +56,7 @@ public class Main {
         }
     }
 
-    public static String[][] splitArray(String[] inputArray, int chunkSize) {
+    private static String[][] splitArray(String[] inputArray, int chunkSize) {
         int numRows = (int) Math.ceil((double) inputArray.length / chunkSize);
         String[][] outputArray = new String[numRows][];
 

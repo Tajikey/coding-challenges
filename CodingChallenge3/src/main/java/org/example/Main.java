@@ -17,7 +17,7 @@ public class Main {
         }
     }
 
-    public static String[] getFileList(String[] args) {
+    private static String[] getFileList(String[] args) {
         String[] fileList;
         if (args.length == 0) {
             System.out.println("Bitte geben Sie die Dateinamen als Argument ein.");
@@ -30,7 +30,7 @@ public class Main {
         }
     }
 
-    public static void sortingObjectsChallenge(String fileName) {
+    private static void sortingObjectsChallenge(String fileName) {
         try {
             String jsonInput = MyFileReader.readFile(fileName);
             Gson gson = new GsonBuilder()
